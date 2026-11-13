@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<title>insurance-readiness</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>insurance-readiness</h1>
+    <p class="sub">Check your cyber insurance questionnaire answers against your evidence before you sign. Finds gate controls that block a quote, answers your own data contradicts, and the controls that push price up. Runs in this tab, nothing is uploaded.</p>
+  </div>
+  <div class="row"><button type="button" data-sample="renewal-draft.json">Draft renewal</button><button type="button" data-sample="ready.json">Ready profile</button></div>
+</header>
+<main>
+  <div class="panel">
+    <h2>Answers and evidence (JSON)</h2>
+    <textarea id="input" rows="22" spellcheck="false"></textarea>
+    <p class="hint">Each answer is yes, partial, no or unknown for "is this control in place". Add coverage, days, lastTested, exceptions and evidence entries so the tool can test your yes. The rating pressure is relative, not a premium estimate.</p>
+  </div>
+  <div id="out"></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

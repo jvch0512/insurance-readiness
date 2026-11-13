@@ -1,0 +1,25 @@
+export type Tier = "gate" | "rating";
+export interface Control { id: string; title: string; tier: Tier; weight: number; effort: "low" | "medium" | "high"; threshold?: number; maxDays?: number; testedWithinDays?: number; ask: string; evidence: string }
+
+// Underwriting controls commonly asked in 2026 questionnaires. Gates are the controls whose absence typically ends in a decline or
+// restrictive terms; ratings move price and conditions. This is market practice, not any one insurer's form.
+export const CONTROLS: Control[] = [
+  { id: "mfa-email", title: "MFA on e-mail and cloud apps", tier: "gate", weight: 0, effort: "low", threshold: 100, ask: "Is MFA enforced for every user of e-mail and SaaS?", evidence: "Identity provider report of MFA enrolment and conditional-access policy export" },
+  { id: "mfa-remote", title: "MFA on all remote access (VPN, RDP gateway, VDI)", tier: "gate", weight: 0, effort: "low", threshold: 100, ask: "Is MFA enforced on every remote access path?", evidence: "VPN or gateway configuration and a list of remote entry points" },
+  { id: "mfa-privileged", title: "MFA on privileged and admin accounts, including cloud consoles and backup consoles", tier: "gate", weight: 0, effort: "low", threshold: 100, ask: "Is MFA enforced on all admin accounts?", evidence: "Admin role list from the identity provider with MFA state" },
+  { id: "edr", title: "EDR or MDR on endpoints and servers", tier: "gate", weight: 0, effort: "medium", threshold: 95, ask: "Is EDR or MDR deployed on endpoints and servers?", evidence: "Console export of agent coverage against the asset inventory" },
+  { id: "backup-immutable", title: "Immutable or offline backups", tier: "gate", weight: 0, effort: "medium", ask: "Are backups immutable or offline and separate from production credentials?", evidence: "Backup architecture, retention-lock or WORM setting, separate identity for the backup console" },
+  { id: "backup-tested", title: "Restore tested in the last 12 months", tier: "gate", weight: 0, effort: "medium", testedWithinDays: 365, ask: "Was a full restore tested and documented?", evidence: "Restore test record with date, scope and result" },
+  { id: "ir-plan", title: "Incident response plan, exercised in the last 12 months", tier: "rating", weight: 12, effort: "medium", testedWithinDays: 365, ask: "Is there a written plan that was exercised?", evidence: "Dated plan, exercise report and contact tree" },
+  { id: "patching", title: "Critical patches applied within 14 days", tier: "rating", weight: 12, effort: "medium", maxDays: 14, ask: "How fast are critical patches applied?", evidence: "Patch compliance report with median time to patch" },
+  { id: "eol", title: "End-of-life systems kept off the internet", tier: "rating", weight: 10, effort: "high", ask: "Are unsupported systems kept unreachable from the internet?", evidence: "External attack surface scan and EOL inventory" },
+  { id: "rdp-exposed", title: "RDP and SMB blocked from the internet", tier: "rating", weight: 8, effort: "low", ask: "Are RDP and SMB blocked from the internet?", evidence: "External scan result" },
+  { id: "email-auth", title: "SPF, DKIM and DMARC enforced (p=quarantine or reject)", tier: "rating", weight: 6, effort: "low", ask: "Is DMARC enforced on your domains?", evidence: "DNS records and DMARC aggregate report" },
+  { id: "pam", title: "Privileged access management or tiered admin accounts", tier: "rating", weight: 10, effort: "high", ask: "Are admin rights separated and vaulted?", evidence: "PAM inventory or admin-tiering design with access reviews" },
+  { id: "segmentation", title: "Network segmentation for critical systems", tier: "rating", weight: 8, effort: "high", ask: "Are critical systems segmented from user networks?", evidence: "Network diagram and firewall rule review" },
+  { id: "monitoring", title: "24x7 monitoring (SOC or MDR)", tier: "rating", weight: 10, effort: "high", ask: "Is someone watching alerts around the clock?", evidence: "Service contract and escalation runbook" },
+  { id: "training", title: "Security awareness training and phishing simulations", tier: "rating", weight: 5, effort: "low", testedWithinDays: 365, ask: "Do staff get training and simulations?", evidence: "Completion and click-rate reports" },
+  { id: "wire-callback", title: "Call-back or dual approval for payment and bank-detail changes", tier: "rating", weight: 9, effort: "low", ask: "Is there out-of-band verification for payment changes?", evidence: "Finance procedure and a sample of approvals" },
+  { id: "vendor-risk", title: "Vendor and MSP risk management", tier: "rating", weight: 6, effort: "medium", ask: "Are critical suppliers assessed and bound by security terms?", evidence: "Supplier register with assessments and contract clauses" },
+  { id: "encryption", title: "Encryption of laptops and sensitive data at rest", tier: "rating", weight: 4, effort: "low", threshold: 95, ask: "Are laptops and sensitive stores encrypted?", evidence: "Device management encryption report" },
+];

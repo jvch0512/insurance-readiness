@@ -1,0 +1,195 @@
+{
+  "organisation": "Servicios Ejemplo S.A.",
+  "today": "2026-11-13",
+  "answers": {
+    "mfa-email": {
+      "value": "yes",
+      "coverage": 100,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-01",
+          "ref": "Identity provider report"
+        }
+      ]
+    },
+    "mfa-remote": {
+      "value": "yes",
+      "coverage": 100,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-01",
+          "ref": "Identity provider report"
+        }
+      ]
+    },
+    "mfa-privileged": {
+      "value": "yes",
+      "coverage": 100,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-01",
+          "ref": "Identity provider report"
+        }
+      ]
+    },
+    "edr": {
+      "value": "yes",
+      "coverage": 99,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-05",
+          "ref": "EDR coverage export"
+        }
+      ]
+    },
+    "backup-immutable": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "config",
+          "date": "2026-09-01",
+          "ref": "WORM setting"
+        }
+      ]
+    },
+    "backup-tested": {
+      "value": "yes",
+      "lastTested": "2026-08-01",
+      "evidence": [
+        {
+          "type": "record",
+          "date": "2026-08-01",
+          "ref": "Restore test"
+        }
+      ]
+    },
+    "ir-plan": {
+      "value": "yes",
+      "lastTested": "2026-06-10",
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-06-10",
+          "ref": "Exercise report"
+        }
+      ]
+    },
+    "patching": {
+      "value": "yes",
+      "days": 9,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-20",
+          "ref": "Patch report"
+        }
+      ]
+    },
+    "eol": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "scan",
+          "date": "2026-10-25",
+          "ref": "Attack surface scan"
+        }
+      ]
+    },
+    "rdp-exposed": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "scan",
+          "date": "2026-10-25",
+          "ref": "Attack surface scan"
+        }
+      ]
+    },
+    "email-auth": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "dns",
+          "date": "2026-10-10",
+          "ref": "DMARC p=reject"
+        }
+      ]
+    },
+    "pam": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "inventory",
+          "date": "2026-09-30",
+          "ref": "Vault inventory"
+        }
+      ]
+    },
+    "segmentation": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "diagram",
+          "date": "2026-07-01",
+          "ref": "Network diagram and rule review"
+        }
+      ]
+    },
+    "monitoring": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "contract",
+          "date": "2026-01-15",
+          "ref": "MDR contract"
+        }
+      ]
+    },
+    "training": {
+      "value": "yes",
+      "lastTested": "2026-10-01",
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-01",
+          "ref": "Training report"
+        }
+      ]
+    },
+    "wire-callback": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "procedure",
+          "date": "2026-03-01",
+          "ref": "Finance procedure"
+        }
+      ]
+    },
+    "vendor-risk": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "register",
+          "date": "2026-08-15",
+          "ref": "Supplier register"
+        }
+      ]
+    },
+    "encryption": {
+      "value": "yes",
+      "coverage": 100,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-03",
+          "ref": "Encryption report"
+        }
+      ]
+    }
+  }
+}

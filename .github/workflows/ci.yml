@@ -1,0 +1,24 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm test
+      - name: Sample outputs are up to date
+        run: |
+          node dist/src/cli.js check examples/renewal-draft.json > /tmp/a.md; diff /tmp/a.md docs/sample-draft.md
+          node dist/src/cli.js check examples/ready.json > /tmp/b.md; diff /tmp/b.md docs/sample-ready.md
+          test "$(node dist/src/cli.js check examples/renewal-draft.json >/dev/null; echo $?)" = "1"
+          node dist/src/cli.js check examples/ready.json >/dev/null

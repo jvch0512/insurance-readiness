@@ -1,0 +1,144 @@
+{
+  "organisation": "Industrias Ejemplo S.L.",
+  "today": "2026-11-13",
+  "answers": {
+    "mfa-email": {
+      "value": "yes",
+      "coverage": 100,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-02",
+          "ref": "Entra MFA registration report"
+        }
+      ]
+    },
+    "mfa-remote": {
+      "value": "yes",
+      "coverage": 100,
+      "exceptions": [
+        "Legacy VPN group for two contractors without MFA"
+      ],
+      "evidence": [
+        {
+          "type": "config",
+          "date": "2026-09-20",
+          "ref": "VPN config export"
+        }
+      ]
+    },
+    "mfa-privileged": {
+      "value": "yes",
+      "coverage": 100,
+      "evidence": []
+    },
+    "edr": {
+      "value": "yes",
+      "coverage": 82,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-05",
+          "ref": "EDR console coverage vs CMDB"
+        }
+      ]
+    },
+    "backup-immutable": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "config",
+          "date": "2026-08-14",
+          "ref": "Object-lock retention 30 days"
+        }
+      ]
+    },
+    "backup-tested": {
+      "value": "yes",
+      "lastTested": "2025-04-10",
+      "evidence": [
+        {
+          "type": "record",
+          "date": "2025-04-10",
+          "ref": "Restore test ticket"
+        }
+      ]
+    },
+    "ir-plan": {
+      "value": "yes",
+      "lastTested": "2026-05-20",
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-05-20",
+          "ref": "Tabletop report"
+        }
+      ]
+    },
+    "patching": {
+      "value": "yes",
+      "days": 27,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-01",
+          "ref": "Patch compliance"
+        }
+      ]
+    },
+    "eol": {
+      "value": "partial",
+      "exceptions": [
+        "Windows Server 2012 R2 file server behind VPN"
+      ]
+    },
+    "rdp-exposed": {
+      "value": "no"
+    },
+    "email-auth": {
+      "value": "yes",
+      "evidence": [
+        {
+          "type": "dns",
+          "date": "2026-10-10",
+          "ref": "DMARC p=reject"
+        }
+      ]
+    },
+    "pam": {
+      "value": "no"
+    },
+    "monitoring": {
+      "value": "unknown"
+    },
+    "training": {
+      "value": "yes",
+      "lastTested": "2026-09-15",
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-09-15",
+          "ref": "Phishing simulation results"
+        }
+      ]
+    },
+    "wire-callback": {
+      "value": "yes",
+      "evidence": []
+    },
+    "vendor-risk": {
+      "value": "partial"
+    },
+    "encryption": {
+      "value": "yes",
+      "coverage": 98,
+      "evidence": [
+        {
+          "type": "report",
+          "date": "2026-10-03",
+          "ref": "Intune encryption report"
+        }
+      ]
+    }
+  }
+}
